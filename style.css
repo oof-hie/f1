@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-right: 200px;
+}
+
+header { display: none; }
+
+/* --- SIDENAV --- */
+.sidenav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  gap: 8px;
+}
+
+.sidenav .site-title {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+}
+
+.sidenav a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 7px 0;
+}
+
+.sidenav a:hover { text-decoration: underline; }
+
+
+/* ================================
+   F1 STÍLUS (főoldal)
+================================ */
+
+.page-f1 {
+  background: #111;
+  color: #fff;
+}
+
+.page-f1 .sidenav {
+  background: #000;
+  border-left: 3px solid #e10600;
+}
+
+.page-f1 .sidenav .site-title {
+  color: #fff;
+  border-bottom: 1px solid #333;
+}
+
+.page-f1 .sidenav a { color: #888; }
+.page-f1 .sidenav a:hover  { color: #fff; }
+.page-f1 .sidenav a.active { color: #e10600; }
+
+.page-f1 .hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 60px;
+  background: url('ferrari-f1.jpg') center/cover no-repeat;
+  border-bottom: 4px solid #e10600;
+}
+
+.page-f1 .hero h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #fff;
+}
+
+.page-f1 .hero h1 span { color: #e10600; }
+
+.page-f1 .hero p {
+  color: #999;
+  margin-top: 16px;
+  font-size: 1rem;
+}
+
+.page-f1 .hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.page-f1 .hero-stats div span {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.page-f1 .hero-stats div small {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #555;
+}
+
+.page-f1 .container {
+  max-width: 960px;
+  margin: auto;
+  padding: 50px 60px;
+}
+
+.page-f1 .container h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.page-f1 .card {
+  background: #1a1a1a;
+  padding: 24px 28px;
+  margin-top: 16px;
+  border-left: 4px solid #e10600;
+}
+
+.page-f1 .card:hover { background: #222; }
+.page-f1 .card h3 { color: #fff; margin-bottom: 8px; }
+.page-f1 .card p  { color: #aaa; font-size: 0.95rem; }
+
+.page-f1 footer {
+  margin-top: auto;
+  background: #000;
+  text-align: center;
+  padding: 16px;
+  color: #444;
+  font-size: 0.85rem;
+  border-top: 1px solid #222;
+}
+
+
+/* ================================
+   FERRARI STÍLUS (aloldalak)
+================================ */
+
+.page-ferrari {
+  background: #0d0000;
+  color: #f5f0eb;
+}
+
+.page-ferrari .sidenav {
+  background: #0a0000;
+  border-left: 3px solid #c9a84c;
+}
+
+.page-ferrari .sidenav .site-title {
+  color: #f5f0eb;
+  border-bottom: 1px solid #2e1a1a;
+}
+
+.page-ferrari .sidenav a { color: #7a5a5a; }
+.page-ferrari .sidenav a:hover  { color: #e8c97a; }
+.page-ferrari .sidenav a.active { color: #c9a84c; }
+
+.page-ferrari .page-header {
+  padding: 70px 60px 40px;
+  background: #120505;
+  border-bottom: 2px solid #cc0000;
+}
+
+.page-ferrari .page-header small {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 10px;
+}
+
+.page-ferrari .page-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #f5f0eb;
+}
+
+.page-ferrari .container {
+  max-width: 960px;
+  margin: auto;
+  padding: 50px 60px;
+}
+
+.page-ferrari .card {
+  background: #1c0a0a;
+  padding: 28px 32px;
+  margin-top: 20px;
+  border-top: 2px solid #cc0000;
+  border: 1px solid #2a1010;
+  border-top: 2px solid #cc0000;
+}
+
+.page-ferrari .card:hover { border-color: #c9a84c; }
+.page-ferrari .card h3 { color: #f5f0eb; margin-bottom: 8px; font-size: 1.2rem; }
+.page-ferrari .card p  { color: #b0a0a0; font-size: 0.95rem; line-height: 1.7; }
+
+.page-ferrari .card .contact-line {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #2a1010;
+  color: #c0b0b0;
+}
+
+.page-ferrari .card .contact-line:last-child { border-bottom: none; }
+
+.page-ferrari .card .contact-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #c9a84c;
+  min-width: 70px;
+}
+
+.page-ferrari footer {
+  margin-top: auto;
+  background: #080000;
+  text-align: center;
+  padding: 16px;
+  color: #4a2a2a;
+  font-size: 0.85rem;
+  border-top: 1px solid #2a1010;
+}
