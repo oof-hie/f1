@@ -72,8 +72,23 @@ header { display: none; }
   flex-direction: column;
   justify-content: flex-end;
   padding: 60px;
-  background: url('ferrari-f1.jpg') center/cover no-repeat;
+  background: url('ferrari-f1.png') center/cover no-repeat;
   border-bottom: 4px solid #e10600;
+  position: relative;
+}
+
+.page-f1 .hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 90%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  pointer-events: none;
+}
+
+.page-f1 .hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .page-f1 .hero h1 {
