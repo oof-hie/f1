@@ -8,7 +8,7 @@
 <body class="page-ferrari">
 
   <nav class="sidenav">
-    <span class="site-title">Weboldalam</span>
+    <span class="site-title">Scuderia Ferrari</span>
     <a href="index.html">Főoldal</a>
     <a href="tortenelem.html" class="active">Történelem</a>
     <a href="technologia.html">Technológia</a>
@@ -46,5 +46,16 @@
 
   <footer>© 2026 Weboldalam</footer>
 
+<script>
+  document.querySelectorAll(".sidenav a").forEach(a => {
+    a.addEventListener("click", function(e) {
+      const href = this.getAttribute("href");
+      if (!href || href.startsWith("#")) return;
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+      setTimeout(() => { window.location.href = href; }, 300);
+    });
+  });
+</script>
 </body>
 </html>

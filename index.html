@@ -8,7 +8,7 @@
 <body class="page-f1">
 
   <nav class="sidenav">
-    <span class="site-title">Menü</span>
+    <span class="site-title">Scuderia Ferrari</span>
     <a href="index.html" class="active">Főoldal</a>
     <a href="tortenelem.html">Történelem</a>
     <a href="technologia.html">Technológia</a>
@@ -17,7 +17,7 @@
 
   <section class="hero">
     <h1>F1<br><span>Ferrari</span></h1>
-    <p>Egyszerű, gyors és stílusos megoldás</p>
+    <p>Készítette: Kondor Á. Bendegúz, Hunyadi Márton, Treszkony Tamás</p>
     <div class="hero-stats">
       <div><span>1105</span><small>Verseny</small></div>
       <div><span>846</span><small>Dobogó</small></div>
@@ -34,5 +34,16 @@
 
   <footer>Készítette: Kondor Á. Bendegúz, Hunyadi Márton, Treszkony Tamás</footer>
 
+<script>
+  document.querySelectorAll(".sidenav a").forEach(a => {
+    a.addEventListener("click", function(e) {
+      const href = this.getAttribute("href");
+      if (!href || href.startsWith("#")) return;
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+      setTimeout(() => { window.location.href = href; }, 300);
+    });
+  });
+</script>
 </body>
 </html>

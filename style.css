@@ -1,15 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Barlow', 'Segoe UI', sans-serif;
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  margin-right: 200px;
+  margin-right: 220px;
+  animation: pageFadeIn 0.45s ease both;
 }
 
 header { display: none; }
@@ -19,28 +27,60 @@ header { display: none; }
   position: fixed;
   top: 0;
   right: 0;
-  width: 200px;
+  width: 220px;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 30px 20px;
-  gap: 8px;
+  padding: 36px 0 30px;
+  gap: 2px;
 }
 
 .sidenav .site-title {
-  font-weight: bold;
-  font-size: 1rem;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin: 0 24px 28px;
+  padding-bottom: 16px;
 }
 
 .sidenav a {
-  font-size: 0.9rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   text-decoration: none;
-  padding: 7px 0;
+  padding: 10px 24px;
+  transition: all 0.18s ease;
+  position: relative;
 }
 
-.sidenav a:hover { text-decoration: underline; }
+.sidenav a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 3px;
+  height: 60%;
+  border-radius: 0 2px 2px 0;
+  transition: transform 0.18s ease;
+}
+
+.sidenav::after {
+  content: '';
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 60px;
+  background: url('f1-logo.png') center/contain no-repeat;
+  opacity: 0.5;
+  pointer-events: none;
+}
 
 
 /* ================================
@@ -53,18 +93,41 @@ header { display: none; }
 }
 
 .page-f1 .sidenav {
-  background: #000;
-  border-left: 3px solid #e10600;
+  background: #080808;
+  border-left: 1px solid #1a1a1a;
 }
 
 .page-f1 .sidenav .site-title {
-  color: #fff;
-  border-bottom: 1px solid #333;
+  color: #e10600;
+  border-bottom: 1px solid #1e1e1e;
 }
 
-.page-f1 .sidenav a { color: #888; }
-.page-f1 .sidenav a:hover  { color: #fff; }
-.page-f1 .sidenav a.active { color: #e10600; }
+.page-f1 .sidenav a {
+  color: #4a4a4a;
+}
+
+.page-f1 .sidenav a::before {
+  background: #e10600;
+}
+
+.page-f1 .sidenav a:hover {
+  color: #cccccc;
+  background: rgba(255,255,255,0.03);
+}
+
+.page-f1 .sidenav a:hover::before {
+  transform: translateY(-50%) scaleY(1);
+}
+
+.page-f1 .sidenav a.active {
+  color: #fff;
+  background: rgba(225, 6, 0, 0.08);
+}
+
+.page-f1 .sidenav a.active::before {
+  background: #e10600;
+  transform: translateY(-50%) scaleY(1);
+}
 
 .page-f1 .hero {
   height: 100vh;
@@ -171,19 +234,55 @@ header { display: none; }
   color: #f5f0eb;
 }
 
+.page-ferrari::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 220px;
+  bottom: 0;
+  background: url('f1-logo.png') center/90% no-repeat;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .page-ferrari .sidenav {
-  background: #0a0000;
-  border-left: 3px solid #c9a84c;
+  background: #080000;
+  border-left: 1px solid #1a0808;
 }
 
 .page-ferrari .sidenav .site-title {
-  color: #f5f0eb;
-  border-bottom: 1px solid #2e1a1a;
+  color: #c9a84c;
+  border-bottom: 1px solid #1e0a0a;
 }
 
-.page-ferrari .sidenav a { color: #7a5a5a; }
-.page-ferrari .sidenav a:hover  { color: #e8c97a; }
-.page-ferrari .sidenav a.active { color: #c9a84c; }
+.page-ferrari .sidenav a {
+  color: #3d2020;
+}
+
+.page-ferrari .sidenav a::before {
+  background: #c9a84c;
+}
+
+.page-ferrari .sidenav a:hover {
+  color: #c9a84c;
+  background: rgba(201, 168, 76, 0.05);
+}
+
+.page-ferrari .sidenav a:hover::before {
+  transform: translateY(-50%) scaleY(1);
+}
+
+.page-ferrari .sidenav a.active {
+  color: #f5f0eb;
+  background: rgba(201, 168, 76, 0.07);
+}
+
+.page-ferrari .sidenav a.active::before {
+  background: #c9a84c;
+  transform: translateY(-50%) scaleY(1);
+}
 
 .page-ferrari .page-header {
   padding: 70px 60px 40px;
@@ -251,4 +350,13 @@ header { display: none; }
   color: #4a2a2a;
   font-size: 0.85rem;
   border-top: 1px solid #2a1010;
+}
+
+/* --- PAGE TRANSITION FADE OUT --- */
+body.fade-out {
+  animation: pageFadeOut 0.3s ease forwards;
+}
+
+@keyframes pageFadeOut {
+  to { opacity: 0; }
 }

@@ -4,47 +4,115 @@
   <meta charset="UTF-8">
   <title>Ferrari pilóták</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .pilots-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      padding: 50px 60px;
+      max-width: 960px;
+      margin: auto;
+    }
+    .pilot-card {
+      background: #1c0a0a;
+      border: 1px solid #2a1010;
+      border-top: 2px solid #cc0000;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .pilot-card:hover { border-color: #c9a84c; }
+    .pilot-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      filter: grayscale(20%);
+      transition: filter 0.3s;
+    }
+    .pilot-card:hover img { filter: grayscale(0%); }
+    .pilot-info { padding: 20px 24px; }
+    .pilot-info h3 { color: #f5f0eb; font-size: 1.2rem; margin-bottom: 4px; }
+    .pilot-info .pilot-years {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c9a84c;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .pilot-info p { color: #b0a0a0; font-size: 0.9rem; line-height: 1.7; }
+  </style>
 </head>
 <body class="page-ferrari">
 
   <nav class="sidenav">
-    <span class="site-title">Weboldalam</span>
+    <span class="site-title">Scuderia Ferrari</span>
     <a href="index.html">Főoldal</a>
     <a href="tortenelem.html">Történelem</a>
     <a href="technologia.html">Technológia</a>
     <a href="pilotak.html" class="active">Pilóták</a>
   </nav>
 
+  <main class="page-content">
   <div class="page-header">
     <small>Scuderia Ferrari</small>
     <h1>Pilóták</h1>
   </div>
 
-  <div class="container">
+  <div class="pilots-grid">
 
-    <div class="card">
-      <h3>Michael Schumacher</h3>
-      <p>A történelem egyik legnagyobb F1-es pilótája. A Ferrarival 5 egymást követő világbajnoki címet szerzett 2000 és 2004 között, összesen 72 győzelmet aratva a piros autóban.</p>
+    <div class="pilot-card">
+      <img src="schumacher.png" alt="Michael Schumacher">
+      <div class="pilot-info">
+        <h3>Michael Schumacher</h3>
+        <span class="pilot-years">1996 – 2006</span>
+        <p>A történelem egyik legnagyobb F1-es pilótája. A Ferrarival 5 egymást követő világbajnoki címet szerzett 2000 és 2004 között, összesen 72 győzelmet aratva a piros autóban.</p>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Niki Lauda</h3>
-      <p>Niki Lauda 1975-ben és 1977-ben nyert világbajnokságot a Ferrarival. 1976-os nürburgringi balesete és visszatérése az F1 egyik legemblematikusabb történetévé vált.</p>
+    <div class="pilot-card">
+      <img src="lauda.png" alt="Niki Lauda">
+      <div class="pilot-info">
+        <h3>Niki Lauda</h3>
+        <span class="pilot-years">1974 – 1977</span>
+        <p>Niki Lauda 1975-ben és 1977-ben nyert világbajnokságot a Ferrarival. 1976-os nürburgringi balesete és visszatérése az F1 egyik legemblematikusabb történetévé vált.</p>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Charles Leclerc</h3>
-      <p>A monacói pilóta 2019 óta vezeti a Ferrari egyik autóját. Gyors és látványos stílusával hamar a szurkolók kedvencévé vált, több pole pozíciót és győzelmet szerezve a csapatnak.</p>
+    <div class="pilot-card">
+      <img src="leclerc.png" alt="Charles Leclerc">
+      <div class="pilot-info">
+        <h3>Charles Leclerc</h3>
+        <span class="pilot-years">2019 –</span>
+        <p>A monacói pilóta 2019 óta vezeti a Ferrari egyik autóját. Gyors és látványos stílusával hamar a szurkolók kedvencévé vált, több pole pozíciót és győzelmet szerezve a csapatnak.</p>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Lewis Hamilton</h3>
-      <p>A 7-szeres világbajnok 2025-ben csatlakozott a Ferrarihoz, megvalósítva élete egyik legnagyobb álmát. A piros autóban való debütálása az egész F1-es világ figyelmét felkeltette.</p>
+    <div class="pilot-card">
+      <img src="hamilton.png" alt="Lewis Hamilton">
+      <div class="pilot-info">
+        <h3>Lewis Hamilton</h3>
+        <span class="pilot-years">2025 –</span>
+        <p>A 7-szeres világbajnok 2025-ben csatlakozott a Ferrarihoz, megvalósítva élete egyik legnagyobb álmát. A piros autóban való debütálása az egész F1-es világ figyelmét felkeltette.</p>
+      </div>
     </div>
 
   </div>
 
   <footer>© 2026 Weboldalam</footer>
+  </main>
 
+<script>
+  document.querySelectorAll(".sidenav a").forEach(a => {
+    a.addEventListener("click", function(e) {
+      const href = this.getAttribute("href");
+      if (!href || href.startsWith("#")) return;
+      e.preventDefault();
+      document.querySelector(".page-content").classList.add("fade-out");
+      setTimeout(() => { window.location.href = href; }, 250);
+    });
+  });
+</script>
 </body>
 </html>
