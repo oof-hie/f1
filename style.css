@@ -22,7 +22,7 @@ body {
 
 header { display: none; }
 
-/* --- SIDENAV --- */
+
 .sidenav {
   position: fixed;
   top: 0;
@@ -82,10 +82,6 @@ header { display: none; }
   pointer-events: none;
 }
 
-
-/* ================================
-   F1 STÍLUS (főoldal)
-================================ */
 
 .page-f1 {
   background: #111;
@@ -225,9 +221,6 @@ header { display: none; }
 }
 
 
-/* ================================
-   FERRARI STÍLUS (aloldalak)
-================================ */
 
 .page-ferrari {
   background: #0d0000;
@@ -352,7 +345,6 @@ header { display: none; }
   border-top: 1px solid #2a1010;
 }
 
-/* --- PAGE TRANSITION FADE OUT --- */
 body.fade-out {
   animation: pageFadeOut 0.3s ease forwards;
 }
