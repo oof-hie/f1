@@ -5,7 +5,7 @@
   <title>Főoldal</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-f1">
+<body >
 
   <nav class="sidenav">
     <span class="site-title">Scuderia Ferrari</span>
@@ -15,9 +15,11 @@
     <a href="pilotak.html">Pilóták</a>
   </nav>
 
-  <section class="hero">
-    <h1>F1<br><span>Ferrari</span></h1>
-    <p>Készítette: Kondor Á. Bendegúz, Hunyadi Márton, Treszkony Tamás</p>
+  <main class="page-content">
+
+  <section class="hero-index">
+    <img src="ferrari_title.png" alt="Formula 1 és Ferrari logó" title="Scuderia Ferrari — Formula 1" class="hero-title-img">
+    <p>A világ legsikeresebb Formula 1-es csapata</p>
     <div class="hero-stats">
       <div><span>1105</span><small>Verseny</small></div>
       <div><span>846</span><small>Dobogó</small></div>
@@ -25,14 +27,33 @@
     </div>
   </section>
 
-  <div class="container">
-    <h2>Üdvözöllek!</h2>
+  <div class="welcome">
+    <span class="welcome-label">Üdvözöllek</span>
+    <h2>Fedezd fel a Ferrari világát</h2>
     <div class="card">
-      <p>Ez egy reszponzív, többoldalas weboldal sablon.</p>
+      <p>Ez az oldal a Scuderia Ferrari Formula 1-es csapatának történetét, technológiáját és legendás pilótáit mutatja be. Böngészd az aloldalakat és merülj el a motorsport egyik legnagyobb legendájának világában.</p>
+    </div>
+    <div class="nav-cards">
+      <a href="tortenelem.html" class="nav-card">
+        <span>Felfedezés</span>
+        <h3>Történelem</h3>
+        <p>1929-től napjainkig</p>
+      </a>
+      <a href="technologia.html" class="nav-card">
+        <span>Mérnökség</span>
+        <h3>Technológia</h3>
+        <p>Motor, aero, váz, fékezés</p>
+      </a>
+      <a href="pilotak.html" class="nav-card">
+        <span>Legendák</span>
+        <h3>Pilóták</h3>
+        <p>Schumacher, Lauda és mások</p>
+      </a>
     </div>
   </div>
 
   <footer>Készítette: Kondor Á. Bendegúz, Hunyadi Márton, Treszkony Tamás</footer>
+  </main>
 
 <script>
   document.querySelectorAll(".sidenav a").forEach(a => {
@@ -40,8 +61,8 @@
       const href = this.getAttribute("href");
       if (!href || href.startsWith("#")) return;
       e.preventDefault();
-      document.body.classList.add("fade-out");
-      setTimeout(() => { window.location.href = href; }, 300);
+      document.querySelector(".page-content").classList.add("fade-out");
+      setTimeout(() => { window.location.href = href; }, 250);
     });
   });
 </script>

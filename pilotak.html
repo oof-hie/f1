@@ -4,47 +4,8 @@
   <meta charset="UTF-8">
   <title>Ferrari pilóták</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .pilots-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      padding: 50px 60px;
-      max-width: 960px;
-      margin: auto;
-    }
-    .pilot-card {
-      background: #1c0a0a;
-      border: 1px solid #2a1010;
-      border-top: 2px solid #cc0000;
-      overflow: hidden;
-      transition: border-color 0.2s;
-    }
-    .pilot-card:hover { border-color: #c9a84c; }
-    .pilot-card img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-      filter: grayscale(20%);
-      transition: filter 0.3s;
-    }
-    .pilot-card:hover img { filter: grayscale(0%); }
-    .pilot-info { padding: 20px 24px; }
-    .pilot-info h3 { color: #f5f0eb; font-size: 1.2rem; margin-bottom: 4px; }
-    .pilot-info .pilot-years {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #c9a84c;
-      margin-bottom: 10px;
-      display: block;
-    }
-    .pilot-info p { color: #b0a0a0; font-size: 0.9rem; line-height: 1.7; }
-  </style>
 </head>
-<body class="page-ferrari">
+<body >
 
   <nav class="sidenav">
     <span class="site-title">Scuderia Ferrari</span>
@@ -58,12 +19,13 @@
   <div class="page-header">
     <small>Scuderia Ferrari</small>
     <h1>Pilóták</h1>
+    <h2></h2>
   </div>
 
   <div class="pilots-grid">
 
     <div class="pilot-card">
-      <img src="schumacher.png" alt="Michael Schumacher">
+      <img src="schumacher.png" alt="Michael Schumacher portréfotója." title="Michael Schumacher">
       <div class="pilot-info">
         <h3>Michael Schumacher</h3>
         <span class="pilot-years">1996 – 2006</span>
@@ -72,7 +34,7 @@
     </div>
 
     <div class="pilot-card">
-      <img src="lauda.png" alt="Niki Lauda">
+      <img src="lauda.png" alt="Niki Lauda portréfotója." title="Niki Lauda">
       <div class="pilot-info">
         <h3>Niki Lauda</h3>
         <span class="pilot-years">1974 – 1977</span>
@@ -81,7 +43,7 @@
     </div>
 
     <div class="pilot-card">
-      <img src="leclerc.png" alt="Charles Leclerc">
+      <img src="leclerc.png" alt="Charles Leclerc portréfotója." title="Charles Leclerc">
       <div class="pilot-info">
         <h3>Charles Leclerc</h3>
         <span class="pilot-years">2019 –</span>
@@ -90,7 +52,7 @@
     </div>
 
     <div class="pilot-card">
-      <img src="hamilton.png" alt="Lewis Hamilton">
+      <img src="hamilton.png" alt="Lewis Hamilton portréfotója." title="Lewis Hamilton">
       <div class="pilot-info">
         <h3>Lewis Hamilton</h3>
         <span class="pilot-years">2025 –</span>
@@ -100,10 +62,87 @@
 
   </div>
 
-  <footer>© 2026 Weboldalam</footer>
+  <div class="quiz">
+    <div class="quiz-inner">
+      <div class="quiz-header">
+        <small>Teszteld tudásod</small>
+        <h2>Pilóták kvíz</h2>
+      </div>
+
+      <div class="quiz-question">
+        <p>1. Hány egymást követő világbajnoki címet szerzett Schumacher a Ferrarival?</p>
+        <label><input type="radio" name="q1" value="a"> 3</label>
+        <label><input type="radio" name="q1" value="b"> 4</label>
+        <label><input type="radio" name="q1" value="c"> 5</label>
+        <label><input type="radio" name="q1" value="d"> 7</label>
+      </div>
+
+      <div class="quiz-question">
+        <p>2. Melyik versenyen szenvedett súlyos balesetet Niki Lauda 1976-ban?</p>
+        <label><input type="radio" name="q2" value="a"> Monza</label>
+        <label><input type="radio" name="q2" value="b"> Silverstone</label>
+        <label><input type="radio" name="q2" value="c"> Nürburgring</label>
+        <label><input type="radio" name="q2" value="d"> Monaco</label>
+      </div>
+
+      <div class="quiz-question">
+        <p>3. Melyik évtől vezeti Charles Leclerc a Ferrari egyik autóját?</p>
+        <label><input type="radio" name="q3" value="a"> 2018</label>
+        <label><input type="radio" name="q3" value="b"> 2019</label>
+        <label><input type="radio" name="q3" value="c"> 2020</label>
+        <label><input type="radio" name="q3" value="d"> 2021</label>
+      </div>
+
+      <div class="quiz-question">
+        <p>4. Hány világbajnoki címmel rendelkezik Lewis Hamilton?</p>
+        <label><input type="radio" name="q4" value="a"> 5</label>
+        <label><input type="radio" name="q4" value="b"> 6</label>
+        <label><input type="radio" name="q4" value="c"> 8</label>
+        <label><input type="radio" name="q4" value="d"> 7</label>
+      </div>
+
+      <button class="quiz-btn" onclick="ertekeles(['c','c','b','d'])">Értékelés</button>
+      <div class="quiz-result" id="quiz-result"></div>
+    </div>
+  </div>
+
+  <footer>Készítette: Kondor Á. Bendegúz, Hunyadi Márton, Treszkony Tamás</footer>
   </main>
 
 <script>
+  function ertekeles(helyes) {
+    var pontszam = 0;
+    var osszes = helyes.length;
+    var eredmenyek = [];
+
+    for (var i = 0; i < osszes; i++) {
+      var valasztott = document.querySelector('input[name="q' + (i+1) + '"]:checked');
+      if (valasztott && valasztott.value === helyes[i]) {
+        pontszam++;
+        eredmenyek.push('helyes');
+      } else {
+        eredmenyek.push('helytelen');
+      }
+    }
+
+    var kerdesek = document.querySelectorAll('.quiz-question');
+    for (var j = 0; j < kerdesek.length; j++) {
+      kerdesek[j].classList.remove('helyes', 'helytelen');
+      kerdesek[j].classList.add(eredmenyek[j]);
+    }
+
+    var szazalek = Math.round((pontszam / osszes) * 100);
+    var szoveg = '';
+    if (szazalek === 100) szoveg = 'Tökéletes! Igazi Ferrari-rajongó vagy!';
+    else if (szazalek >= 75) szoveg = 'Nagyszerű! Majdnem mindent tudtál.';
+    else if (szazalek >= 50) szoveg = 'Nem rossz! Érdemes még egyszer átolvasni.';
+    else szoveg = 'Próbáld újra! Olvasd el még egyszer a pilóták lapot.';
+
+    document.getElementById('quiz-result').innerHTML =
+      '<strong>' + pontszam + ' / ' + osszes + ' helyes válasz (' + szazalek + '%)</strong><br>' + szoveg;
+    document.getElementById('quiz-result').style.display = 'block';
+  }
+
   document.querySelectorAll(".sidenav a").forEach(a => {
     a.addEventListener("click", function(e) {
       const href = this.getAttribute("href");
